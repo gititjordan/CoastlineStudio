@@ -23,6 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <style>
   :root{
     --navy:#1E2A47;
@@ -605,6 +606,11 @@
   }
   .mockup-form .btn{grid-column:1/-1;width:100%;margin-top:2px;}
   .form-note{grid-column:1/-1;text-align:center;font-size:12px;color:var(--muted);}
+  .form-error{grid-column:1/-1;margin:0;padding:11px 13px;border:1px solid rgba(170,45,45,.18);border-radius:12px;background:rgba(170,45,45,.065);color:#8b2929;font-size:12.5px;line-height:1.5;}
+  .form-error[hidden]{display:none;}
+  .form-honeypot{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important;}
+  .turnstile-field{min-height:65px;align-items:flex-start;}
+  .mockup-form .btn:disabled{cursor:wait;opacity:.65;transform:none;box-shadow:none;}
   .form-success{text-align:center;padding:42px 10px 24px;}
   .form-success .success-icon{
     width:58px;height:58px;border-radius:50%;margin:0 auto 18px;
@@ -1468,6 +1474,14 @@
         <label for="mockupGoals">What would you like your website to accomplish?</label>
         <textarea id="mockupGoals" name="goals" placeholder="More calls, quote requests, bookings…" required></textarea>
       </div>
+      <div class="form-honeypot" aria-hidden="true">
+        <label for="mockupCompanyWebsite">Leave this field empty</label>
+        <input id="mockupCompanyWebsite" name="company_website" type="text" tabindex="-1" autocomplete="off">
+      </div>
+      <div class="form-field full turnstile-field">
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAD0ZDqT78NM8hdni" data-theme="light"></div>
+      </div>
+      <p class="form-error" id="mockupError" role="alert" hidden></p>
       <button type="submit" class="btn btn-primary">Request My Free Concept</button>
       <p class="form-note">No pressure, no payment, and no obligation.</p>
     </form>
@@ -1475,8 +1489,8 @@
       <div class="success-icon">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
       </div>
-      <h2>One last step</h2>
-      <p>Your email app has opened with the request filled in. Send that message and I’ll reply within 1–2 business days.</p>
+      <h2>Request received</h2>
+      <p>Thanks for sharing your project. I’ll reply within 1–2 business days.</p>
     </div>
   </div>
 </div>
@@ -1549,12 +1563,15 @@
   const mockupModal = document.getElementById('mockupModal');
   const mockupForm = document.getElementById('mockupForm');
   const mockupSuccess = document.getElementById('mockupSuccess');
+  const mockupError = document.getElementById('mockupError');
   let modalTrigger = null;
 
   const openMockupModal = trigger => {
     modalTrigger = trigger;
     mockupForm.hidden = false;
     mockupSuccess.hidden = true;
+    mockupError.hidden = true;
+    mockupError.textContent = '';
     mockupModal.classList.add('open');
     mockupModal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('modal-open');
@@ -1604,17 +1621,57 @@
     }
   });
 
-  mockupForm.addEventListener('submit', event => {
+  mockupForm.addEventListener('submit', async event => {
     event.preventDefault();
+    const submitButton = mockupForm.querySelector('button[type="submit"]');
+    const originalLabel = submitButton.textContent;
     const data = new FormData(mockupForm);
-    const subject = encodeURIComponent(`Free mockup request — ${data.get('business')}`);
-    const body = encodeURIComponent(
-      `Name: ${data.get('name')}\nEmail: ${data.get('email')}\nBusiness: ${data.get('business')}\nBusiness type: ${data.get('business_type')}\nCurrent website: ${data.get('website') || 'None'}\n\nWebsite goals:\n${data.get('goals')}`
-    );
-    window.location.href = `mailto:hello@coastlinestudio.ca?subject=${subject}&body=${body}`;
-    mockupForm.hidden = true;
-    mockupSuccess.hidden = false;
-    mockupSuccess.focus();
+    const turnstileToken = data.get('cf-turnstile-response');
+
+    mockupError.hidden = true;
+    mockupError.textContent = '';
+
+    if (!turnstileToken) {
+      mockupError.textContent = 'Please complete the spam verification.';
+      mockupError.hidden = false;
+      return;
+    }
+
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending…';
+
+    try {
+      const response = await fetch('/api/mockup', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          name: data.get('name'),
+          email: data.get('email'),
+          business: data.get('business'),
+          business_type: data.get('business_type'),
+          website: data.get('website'),
+          goals: data.get('goals'),
+          company_website: data.get('company_website'),
+          turnstileToken,
+        }),
+      });
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok) throw new Error(result.error || 'Unable to submit the form.');
+
+      mockupForm.hidden = true;
+      mockupSuccess.hidden = false;
+      mockupSuccess.focus();
+      mockupForm.reset();
+      window.turnstile?.reset();
+    } catch (error) {
+      mockupError.textContent = error.message;
+      mockupError.hidden = false;
+      window.turnstile?.reset();
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = originalLabel;
+    }
   });
 
   // FAQ accordion

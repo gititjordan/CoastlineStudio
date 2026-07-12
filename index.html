@@ -418,10 +418,10 @@
     display:block;
     transition:transform .65s cubic-bezier(.2,.7,.2,1);
   }
-  .portfolio-thumb.thumb-1 img{object-fit:fill;object-position:center;}
+  .portfolio-thumb.thumb-1 img{object-fit:cover;object-position:top center;}
   .portfolio-card:hover .portfolio-thumb img{transform:scale(1.045);}
   .portfolio-thumb::after{
-    content:"View Live Site";
+    content:attr(data-hover-label);
     position:absolute;inset:0;
     display:flex;align-items:center;justify-content:center;
     background:rgba(30,42,71,0.75);
@@ -1236,19 +1236,19 @@
       <p>Every industry has different customers — and different websites. Here's a sample of ours.</p>
     </div>
     <div class="portfolio-grid">
-      <div class="portfolio-card">
-        <div class="portfolio-thumb thumb-1">
-          <img src="assets/work/grow-landscaping-work.png" alt="Grow Landscaping website mockup" width="1031" height="487" loading="lazy" decoding="async">
+      <a class="portfolio-card" href="https://growlandscaping.ca/" target="_blank" rel="noopener noreferrer" aria-label="Visit the live Grow Landscaping website">
+        <div class="portfolio-thumb thumb-1" data-hover-label="Visit Live Site ↗">
+          <img src="assets/work/grow-landscaping-live.png" alt="Grow Landscaping live website homepage" width="1440" height="900" loading="lazy" decoding="async">
         </div>
         <div class="portfolio-info">
           <span class="tag">Landscaping</span>
           <h3>Grow Landscaping</h3>
           <p>Service-led homepage + quote-focused calls to action</p>
-          <div class="project-meta"><span>Selected concept</span><span>Lead generation</span></div>
+          <div class="project-meta"><span>Live website</span><span>Lead generation ↗</span></div>
         </div>
-      </div>
+      </a>
       <div class="portfolio-card">
-        <div class="portfolio-thumb thumb-2">
+        <div class="portfolio-thumb thumb-2" data-hover-label="View Concept">
           <img src="assets/work/fade-culture-work.png" alt="Fade Culture Barbershop website mockup" width="748" height="498" loading="lazy" decoding="async">
         </div>
         <div class="portfolio-info">
@@ -1259,7 +1259,7 @@
         </div>
       </div>
       <div class="portfolio-card">
-        <div class="portfolio-thumb thumb-3">
+        <div class="portfolio-thumb thumb-3" data-hover-label="View Concept">
           <img src="assets/work/summit-hvac-work.png" alt="Summit HVAC Services website mockup" width="749" height="498" loading="lazy" decoding="async">
         </div>
         <div class="portfolio-info">

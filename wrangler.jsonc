@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "coastline-studio",
+  "compatibility_date": "2026-07-12",
+  "main": "functions/api/mockup.js",
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  "vars": {
+    "CONTACT_EMAIL": "hello@coastlinestudio.ca",
+    "FROM_EMAIL": "Coastline Studio <forms@coastlinestudio.ca>"
+  }
+}

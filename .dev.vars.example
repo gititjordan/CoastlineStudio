@@ -1,0 +1,7 @@
+# Copy this file to .dev.vars for local development. Never commit real secrets.
+RESEND_API_KEY="re_replace_me"
+TURNSTILE_SECRET_KEY="replace_me"
+
+# Non-secret configuration
+CONTACT_EMAIL="hello@coastlinestudio.ca"
+FROM_EMAIL="Coastline Studio <forms@coastlinestudio.ca>"

@@ -1,0 +1,11 @@
+.git/
+.github/
+.dev.vars*
+.env*
+functions/
+node_modules/
+.assetsignore
+.gitignore
+LICENSE
+README.md
+wrangler.jsonc

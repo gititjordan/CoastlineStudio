@@ -151,19 +151,24 @@ export async function onRequestPost({ request, env }) {
           "hello@coastlinestudio.ca",
         ].join("\n"),
         html: `<!doctype html>
-<html lang="en">
+<html lang="en" style="margin:0;padding:0;">
   <body style="margin:0;padding:0;background:#f5f4f0;color:#20252d;">
-    <div style="padding:32px 16px;">
-      <div style="max-width:600px;margin:0 auto;overflow:hidden;background:#fff;border:1px solid #e1e0db;border-radius:20px;box-shadow:0 14px 40px rgba(16,26,43,.08);">
-        <div style="padding:20px 30px;background:linear-gradient(135deg,#0b1626,#17304c);">
-          <img src="https://coastlinestudio.ca/assets/coastline-studio-logo-header.png" width="280" alt="Coastline Studio" style="display:block;width:280px;max-width:100%;height:auto;padding:10px 14px;background:#f8f7f3;border:0;border-radius:8px;">
-        </div>
-        <div style="padding:34px 30px;font-family:Arial,sans-serif;font-size:15px;line-height:1.7;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;background:#f5f4f0;">
+      <tr>
+        <td align="center" style="padding:24px 12px;">
+          <table role="presentation" width="600" cellspacing="0" cellpadding="0" border="0" style="width:100%;max-width:600px;border-collapse:separate;background:#ffffff;border:1px solid #e1e0db;border-radius:20px;overflow:hidden;">
+            <tr>
+              <td align="left" style="padding:20px 30px;background:#0f2339;">
+                <img src="https://coastlinestudio.ca/assets/coastline-studio-logo-header.png" width="280" alt="Coastline Studio" style="display:block;width:100%;max-width:280px;height:auto;box-sizing:border-box;padding:10px 14px;background:#f8f7f3;border:0;border-radius:8px;">
+              </td>
+            </tr>
+            <tr>
+              <td align="left" style="padding:34px 30px;font-family:Arial,sans-serif;font-size:15px;line-height:1.7;">
           <h1 style="margin:0 0 18px;color:#101a2b;font-family:Georgia,serif;font-size:30px;line-height:1.15;">Request received.</h1>
           <p>Hi ${safeFirstName},</p>
           <p>Thanks for telling us about <strong>${safeBusiness}</strong>. Your mockup request has been received.</p>
           <p>We’ll review your details and reply within <strong>1–2 business days</strong>.</p>
-          <div style="margin:26px 0;padding:22px;border:1px solid #e3e6e9;border-radius:15px;background:#f8f9fa;">
+          <div style="margin:26px 0;padding:22px;box-sizing:border-box;border:1px solid #e3e6e9;border-radius:15px;background:#f8f9fa;">
             <strong style="color:#101a2b;">What happens next</strong>
             <ol style="margin:12px 0 0;padding-left:20px;">
               <li>We review your business and website goals.</li>
@@ -173,9 +178,12 @@ export async function onRequestPost({ request, env }) {
           </div>
           <p>If you need to add anything, simply reply to this email.</p>
           <p style="margin-top:28px;">Coastline Studio<br><a href="tel:+16474711807" style="color:#126eb8;">647-471-1807</a><br><a href="mailto:hello@coastlinestudio.ca" style="color:#126eb8;">hello@coastlinestudio.ca</a></p>
-        </div>
-      </div>
-    </div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
   </body>
 </html>`,
       }),

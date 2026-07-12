@@ -155,8 +155,8 @@ export async function onRequestPost({ request, env }) {
   <body style="margin:0;padding:0;background:#f5f4f0;color:#20252d;">
     <div style="padding:32px 16px;">
       <div style="max-width:600px;margin:0 auto;overflow:hidden;background:#fff;border:1px solid #e1e0db;border-radius:20px;box-shadow:0 14px 40px rgba(16,26,43,.08);">
-        <div style="padding:25px 30px;background:linear-gradient(135deg,#0b1626,#17304c);color:#fff;">
-          <div style="font-family:Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#85c6ed;">Coastline Studio</div>
+        <div style="padding:20px 30px;background:linear-gradient(135deg,#0b1626,#17304c);">
+          <img src="https://coastlinestudio.ca/assets/coastline-studio-logo-header.png" width="280" alt="Coastline Studio" style="display:block;width:280px;max-width:100%;height:auto;padding:10px 14px;background:#f8f7f3;border:0;border-radius:8px;">
         </div>
         <div style="padding:34px 30px;font-family:Arial,sans-serif;font-size:15px;line-height:1.7;">
           <h1 style="margin:0 0 18px;color:#101a2b;font-family:Georgia,serif;font-size:30px;line-height:1.15;">Request received.</h1>

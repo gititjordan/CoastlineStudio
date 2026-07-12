@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "coastline-studio",
+  "name": "coastlinestudio",
   "compatibility_date": "2026-07-12",
   "main": "functions/api/mockup.js",
   "assets": {

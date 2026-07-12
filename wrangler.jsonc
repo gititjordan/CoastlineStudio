@@ -9,7 +9,7 @@
     "run_worker_first": ["/api/*"]
   },
   "vars": {
-    "CONTACT_EMAIL": "hello@coastlinestudio.ca",
+    "CONTACT_EMAIL": "forms@coastlinestudio.ca",
     "FROM_EMAIL": "Coastline Studio <forms@coastlinestudio.ca>"
   }
 }

@@ -78,7 +78,8 @@ export async function onRequestPost({ request, env }) {
       return json({ error: "Spam verification expired or failed. Please try again." }, 400);
     }
 
-    const contactEmail = env.CONTACT_EMAIL || "hello@coastlinestudio.ca";
+    const contactEmail = env.CONTACT_EMAIL || "forms@coastlinestudio.ca";
+    const replyEmail = env.REPLY_EMAIL || "hello@coastlinestudio.ca";
     const fromEmail = env.FROM_EMAIL || "Coastline Studio <forms@coastlinestudio.ca>";
     const requestId = crypto.randomUUID();
     const emailText = [
@@ -130,8 +131,8 @@ export async function onRequestPost({ request, env }) {
       body: JSON.stringify({
         from: fromEmail,
         to: [submission.email],
-        reply_to: contactEmail,
-        subject: "We received your Coastline Studio request",
+        reply_to: replyEmail,
+        subject: `We received your Coastline Studio request — ${submission.business}`,
         text: [
           `Hi ${firstName},`,
           "",
@@ -158,8 +159,8 @@ export async function onRequestPost({ request, env }) {
         <td align="center" style="padding:24px 12px;">
           <table role="presentation" width="600" cellspacing="0" cellpadding="0" border="0" style="width:100%;max-width:600px;border-collapse:separate;background:#ffffff;border:1px solid #e1e0db;border-radius:20px;overflow:hidden;">
             <tr>
-              <td align="left" style="padding:20px 30px;background:#0f2339;">
-                <img src="https://coastlinestudio.ca/assets/coastline-studio-logo-header.png" width="280" alt="Coastline Studio" style="display:block;width:100%;max-width:280px;height:auto;box-sizing:border-box;padding:10px 14px;background:#f8f7f3;border:0;border-radius:8px;">
+              <td align="left" style="padding:20px 30px;background:linear-gradient(135deg,#0b1626,#17304c);">
+                <img src="https://coastlinestudio.ca/assets/coastline-studio-logo-header.png" width="280" alt="Coastline Studio" style="display:block;width:280px;max-width:100%;height:auto;padding:10px 14px;background:#f8f7f3;border:0;border-radius:8px;">
               </td>
             </tr>
             <tr>

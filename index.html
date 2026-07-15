@@ -960,16 +960,16 @@
     .nav-links a:active{background:var(--cream-dark);}
     .nav-links a::after{display:none;}
     .hero{padding:34px 0 58px;}
-    .hero-grid{gap:34px;text-align:left;}
+    .hero-grid{gap:34px;text-align:center;}
     .hero-visual{display:none;}
-    .hero-grid > div:first-child{order:-1;margin:0;}
-    .hero .eyebrow{justify-content:flex-start;margin-bottom:16px;}
+    .hero-grid > div:first-child{order:-1;width:100%;max-width:560px;margin:0 auto;}
+    .hero .eyebrow{justify-content:center;margin-bottom:16px;}
     .hero h1{font-size:clamp(39px,11.5vw,50px);line-height:1;letter-spacing:-.04em;margin-bottom:20px;}
     .hero h1 .hero-title-line{display:block;}
-    .hero p.lead{font-size:15.5px;line-height:1.68;margin:0 0 28px;max-width:36rem;}
+    .hero p.lead{font-size:15.5px;line-height:1.68;margin:0 auto 28px;max-width:36rem;}
     .hero-ctas{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:22px;}
     .hero-ctas .btn{width:100%;max-width:none;min-height:52px;padding-inline:18px;font-size:13.5px;}
-    .hero-proof{grid-template-columns:1fr;gap:10px;margin-top:0;padding-top:18px;font-size:11.5px;}
+    .hero-proof{grid-template-columns:1fr;gap:10px;width:100%;max-width:280px;margin:0 auto;padding-top:18px;font-size:11.5px;text-align:left;}
     .trust-strip{padding:34px 0 30px;overflow:hidden;}
     .trust-label{text-align:left;font-size:10px;line-height:1.5;margin-bottom:18px;}
     .trust-logos{justify-content:flex-start;flex-wrap:nowrap;gap:8px;overflow-x:auto;margin-inline:-18px;padding:0 18px 7px;scrollbar-width:none;scroll-snap-type:x proximity;}

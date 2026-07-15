@@ -832,11 +832,12 @@
   .nav-links{gap:34px;}
   .nav-links a{font-size:13px;letter-spacing:.01em;}
   .nav-links a::after{height:1px;}
-  .hero{padding:108px 0 92px;}
+  .hero{padding:64px 0 84px;}
   .hero::before{top:-180px;right:-100px;width:650px;height:650px;background:radial-gradient(circle,rgba(30,132,201,.13),transparent 68%);}
   .hero-grid{grid-template-columns:1.08fr .92fr;gap:78px;}
   .hero h1{font-size:clamp(48px,5vw,68px);line-height:1.03;letter-spacing:-.045em;margin-bottom:26px;}
-  .hero p.lead{font-size:17px;line-height:1.75;max-width:540px;margin-bottom:36px;}
+  .hero h1 .hero-title-line{display:block;}
+  .hero p.lead{font-size:17px;line-height:1.72;max-width:620px;margin-bottom:32px;}
   .hero-ctas{gap:12px;margin-bottom:38px;}
   .hero .hero-ctas .btn{
     position:relative;min-height:52px;padding:13px 21px 13px 24px;border-radius:15px;
@@ -863,19 +864,20 @@
   .hero .hero-ctas .btn-primary:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.27),0 15px 30px rgba(11,77,126,.27);}
   .hero .hero-ctas .btn-outline:hover{color:var(--navy);border-color:rgba(16,26,43,.25);background:rgba(255,255,255,.82);box-shadow:inset 0 1px 0 #fff,0 9px 20px rgba(16,26,43,.07);}
   .hero .hero-ctas .btn:active{transform:translateY(1px);box-shadow:none;}
-  .hero-meta{gap:22px;}
-  .hero-meta-item{font-size:13px;}
   .hero-proof{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px;padding-top:22px;
+    display:grid;grid-template-columns:repeat(3,max-content);gap:24px;margin-top:4px;padding-top:22px;
     border-top:1px solid rgba(16,26,43,.1);max-width:540px;
     font-size:12px;color:var(--navy);letter-spacing:.01em;
   }
   .hero-proof-item{display:flex;align-items:flex-start;gap:8px;font-weight:600;line-height:1.45;}
   .hero-proof-item::before{content:"✓";display:grid;place-items:center;flex:0 0 auto;width:17px;height:17px;margin-top:0;border-radius:50%;background:rgba(18,110,184,.1);color:var(--brand-blue);font-size:10px;font-weight:800;}
+  .floating-badge{bottom:-18px;left:-16px;max-width:300px;padding:13px 16px;border-radius:14px;gap:10px;}
+  .floating-badge .num{font-size:20px;white-space:nowrap;}
+  .floating-badge .txt{max-width:112px;font-size:10.5px;}
   .browser-mock{border-radius:26px;border:1px solid rgba(255,255,255,.9);box-shadow:0 2px 4px rgba(16,26,43,.06),0 32px 80px rgba(16,26,43,.18);transform:rotate(.7deg);}
   .browser-bar{padding:13px 17px;background:#f2f1ed;}
   .browser-dot{width:8px;height:8px;background:#cac9c4;}
-  .floating-badge{bottom:-26px;left:-34px;padding:18px 22px;border:1px solid rgba(255,255,255,.1);border-radius:18px;background:linear-gradient(145deg,#14233a,#0d1728);box-shadow:0 22px 50px rgba(10,18,31,.28);}
+  .floating-badge{bottom:-18px;left:-16px;padding:13px 16px;border:1px solid rgba(255,255,255,.1);border-radius:14px;background:linear-gradient(145deg,#14233a,#0d1728);box-shadow:0 18px 40px rgba(10,18,31,.24);}
   .floating-badge .num{font-size:20px;color:#8dc9ed;}
   .trust-strip{padding:42px 0;background:rgba(255,255,255,.3);border-color:rgba(16,26,43,.08);}
   .trust-label{font-size:11px;letter-spacing:.13em;margin-bottom:26px;}
@@ -957,25 +959,22 @@
     .nav-links a{display:block;width:100%;padding:12px 14px;border-radius:10px;font-size:14px;text-align:left;}
     .nav-links a:active{background:var(--cream-dark);}
     .nav-links a::after{display:none;}
-    .hero{padding:30px 0 64px;}
+    .hero{padding:34px 0 58px;}
     .hero-grid{gap:34px;text-align:left;}
     .hero-visual{order:0;margin:0 auto 8px;}
     .hero-grid > div:first-child{order:-1;margin:0;}
     .hero .eyebrow{justify-content:flex-start;margin-bottom:16px;}
-    .hero h1{font-size:clamp(40px,12vw,50px);line-height:.99;letter-spacing:-.05em;margin-bottom:22px;}
-    .hero h1 br{display:none;}
+    .hero h1{font-size:clamp(39px,11.5vw,50px);line-height:1;letter-spacing:-.04em;margin-bottom:20px;}
+    .hero h1 .hero-title-line{display:block;}
     .hero p.lead{font-size:15.5px;line-height:1.68;margin:0 0 28px;max-width:36rem;}
-    .hero-ctas{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:25px;}
-    .hero-ctas .btn{width:100%;max-width:none;min-height:52px;padding-inline:14px;font-size:13px;}
-    .hero-meta{justify-content:flex-start;gap:10px 18px;}
-    .hero-meta-item{font-size:12px;justify-content:flex-start;}
-    .hero-meta-item svg{width:16px;height:16px;}
-    .hero-proof{grid-template-columns:1fr;gap:10px;margin-top:20px;padding-top:18px;font-size:11.5px;}
+    .hero-ctas{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:22px;}
+    .hero-ctas .btn{width:100%;max-width:none;min-height:52px;padding-inline:18px;font-size:13.5px;}
+    .hero-proof{grid-template-columns:1fr;gap:10px;margin-top:0;padding-top:18px;font-size:11.5px;}
     .browser-mock{border-radius:20px;box-shadow:0 2px 3px rgba(16,26,43,.05),0 22px 48px rgba(16,26,43,.16);}
     .browser-mock-body{aspect-ratio:1.28/1;}
-    .floating-badge{display:none;}
+    .floating-badge{display:flex;position:static;width:max-content;max-width:100%;margin:12px 0 0;padding:10px 13px;border-radius:12px;box-shadow:0 12px 28px rgba(16,26,43,.16);}
     .floating-badge .num{min-width:0;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;line-height:1.25;white-space:normal;overflow-wrap:anywhere;}
-    .floating-badge .txt{min-width:0;font-size:10.5px;max-width:none;overflow-wrap:anywhere;}
+    .floating-badge .txt{display:none;}
     .trust-strip{padding:34px 0 30px;overflow:hidden;}
     .trust-label{text-align:left;font-size:10px;line-height:1.5;margin-bottom:18px;}
     .trust-logos{justify-content:flex-start;flex-wrap:nowrap;gap:8px;overflow-x:auto;margin-inline:-18px;padding:0 18px 7px;scrollbar-width:none;scroll-snap-type:x proximity;}
@@ -1008,7 +1007,7 @@
     .experience-card p{font-size:13px;line-height:1.55;}
     .price-card{padding:30px 24px;border-radius:20px;}
     .price-card:not(.featured){opacity:1;box-shadow:0 4px 18px rgba(16,26,43,.045);}
-    .price-card.featured{order:-1;margin-top:9px;box-shadow:0 24px 52px rgba(16,26,43,.24);}
+    .price-card.featured{margin-top:9px;box-shadow:0 24px 52px rgba(16,26,43,.24);}
     .price-card h3{font-size:19px;}
     .price-amount{font-size:40px;}
     .price-features{margin:22px 0 25px;}
@@ -1066,6 +1065,14 @@
   .footer-col a::after{content:"↗";font-size:10px;color:#5e7898;opacity:0;transform:translate(-3px,3px);transition:opacity .2s ease,transform .2s ease;}
   .footer-col a:hover{color:#fff;transform:translateX(2px);}
   .footer-col a:hover::after{opacity:1;transform:translate(0,0);}
+  .footer-col .footer-phone{
+    justify-content:center;min-height:42px;padding:9px 14px;border:1px solid rgba(255,255,255,.16);border-radius:12px;
+    color:#dce5ef;background:rgba(255,255,255,.055);box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+    font-weight:600;white-space:nowrap;transition:color .2s ease,border-color .2s ease,background .2s ease,transform .2s ease;
+  }
+  .footer-col .footer-phone::after{content:none;}
+  .footer-col .footer-phone:hover{color:#fff;border-color:rgba(75,161,220,.55);background:rgba(37,136,206,.18);transform:translateY(-1px);}
+  .footer-phone svg{flex:0 0 auto;}
   .social-row{gap:9px!important;margin-top:24px!important;}
   .social-row a{width:42px;height:42px;border:1px solid rgba(255,255,255,.11);background:rgba(255,255,255,.055);color:#d9e2ec;box-shadow:inset 0 1px 0 rgba(255,255,255,.04);}
   .social-row a:hover{background:#2588ce;border-color:#4ba1dc;color:#fff;transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.22);}
@@ -1095,6 +1102,7 @@
     .footer-col:last-child{grid-column:1/-1;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);}
     .footer-col h4{font-size:9px;margin-bottom:17px;}
     .footer-col a{font-size:13px;}
+    .footer-col .footer-phone{width:100%;min-height:46px;}
     .social-row a{width:40px;height:40px;}
     .footer-bottom{align-items:flex-start;gap:10px;padding-top:22px;font-size:10px;}
   }
@@ -1154,26 +1162,16 @@
   <div class="container hero-grid">
     <div>
       <div class="eyebrow">Websites for local businesses</div>
-      <h1>Your business,<br>made easy <em>to find</em>.</h1>
-      <p class="lead">We design and build fast, beautiful websites for local shops, trades, and clinics — no jargon, no ghosting, no bloated invoices. Just a site that gets you found and gets you calls.</p>
+      <h1><span class="hero-title-line">Your business, </span><span class="hero-title-line">made easy <em>to find</em>.</span></h1>
+      <p class="lead">We build fast, professional websites for local businesses—without jargon, ghosting, or surprise invoices. Just a site designed to get you found and generate more calls.</p>
       <div class="hero-ctas">
-        <a href="#contact" class="btn btn-primary">Get Started<span class="btn-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+        <button type="button" class="btn btn-primary" data-open-mockup>Get Your Free Mockup<span class="btn-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></button>
         <a href="#work" class="btn btn-outline">See Our Work<span class="btn-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M14 7l5 5-5 5"/></svg></span></a>
       </div>
-      <div class="hero-meta">
-        <div class="hero-meta-item">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
-          Flat, upfront pricing
-        </div>
-        <div class="hero-meta-item">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
-          Live in 1–2 weeks
-        </div>
-      </div>
       <div class="hero-proof" aria-label="Project benefits">
-        <span class="hero-proof-item">Direct designer access</span>
-        <span class="hero-proof-item">Custom-built for your business</span>
-        <span class="hero-proof-item">Launch support included</span>
+        <span class="hero-proof-item">Upfront pricing</span>
+        <span class="hero-proof-item">Live in 1–2 weeks</span>
+        <span class="hero-proof-item">Direct designer support</span>
       </div>
     </div>
     <div class="hero-visual">
@@ -1232,7 +1230,7 @@
       <div class="process-card">
         <div class="process-num">3</div>
         <h3>Launch</h3>
-        <p>Your site goes live, optimized for search and mobile, with training so you can update it yourself.</p>
+        <p>Your site goes live optimized for search and mobile, with launch support and an optional monthly care plan for ongoing updates.</p>
       </div>
     </div>
   </div>
@@ -1364,7 +1362,6 @@
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Contact form and Google Maps</li>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Project or photo gallery</li>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Basic SEO setup</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Click-to-call and email buttons</li>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>2 revision rounds and 30 days support</li>
         </ul>
         <div class="delivery-time">5–7 business day delivery</div>
@@ -1372,7 +1369,6 @@
         <p class="price-guarantee">✓ Love your design before final approval</p>
       </div>
       <div class="price-card featured">
-        <div class="featured-badge">Most popular · Best value</div>
         <h3>Growth</h3>
         <p class="price-tagline">For businesses ready to grow</p>
         <div class="price-amount">$3,000 <span>CAD</span></div>
@@ -1556,7 +1552,7 @@
       <div class="footer-col">
         <h4>Contact</h4>
         <ul>
-          <li><a href="tel:+16474711807">647-471-1807</a></li>
+          <li><a href="tel:+16474711807" class="footer-phone" aria-label="Call Coastline Studio at 647-471-1807"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>647-471-1807</a></li>
           <li><a href="mailto:contact@coastlinestudio.ca">contact@coastlinestudio.ca</a></li>
         </ul>
       </div>

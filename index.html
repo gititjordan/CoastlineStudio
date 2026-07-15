@@ -960,7 +960,7 @@
     .nav-links a:active{background:var(--cream-dark);}
     .nav-links a::after{display:none;}
     .hero{padding:28px 0 46px;}
-    .hero-grid{gap:34px;text-align:center;}
+    .hero-grid{grid-template-columns:minmax(0,1fr);gap:0;width:100%;text-align:center;}
     .hero-visual{display:none;}
     .hero-grid > div:first-child{order:-1;width:100%;max-width:560px;margin:0 auto;}
     .hero .eyebrow{justify-content:center;margin-bottom:14px;font-size:11px;line-height:1.45;letter-spacing:.11em;}
@@ -1159,7 +1159,7 @@
   <div class="container hero-grid">
     <div>
       <div class="eyebrow">Websites for local businesses</div>
-      <h1><span class="hero-title-line">Your business, </span><span class="hero-title-line">made easy <em>to find</em>.</span></h1>
+      <h1><span class="hero-title-line">Your business, </span><span class="hero-title-line">made easy <em>to find.</em></span></h1>
       <p class="lead">Fast, professional websites for local businesses—built to get you found and generate more calls.</p>
       <div class="hero-ctas">
         <button type="button" class="btn btn-primary" data-open-mockup>Get Your Free Mockup<span class="btn-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></button>
